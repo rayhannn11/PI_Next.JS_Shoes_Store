@@ -1,0 +1,165 @@
+.container {
+  padding: 50px;
+  display: flex;
+  min-height: calc(80vh - 100px);
+  width: 70%;
+  margin: 0px 200px;
+  position: relative;
+}
+
+.left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleCart {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.itemsContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.itemContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: auto;
+  width: 100%;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 1.25rem;
+}
+
+.itemTitle {
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+}
+
+.Category {
+  font-weight: lighter;
+}
+
+/* Cart Option */
+
+.cartOptionContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cartOption {
+  display: flex;
+}
+.cartOption:first-child {
+  margin-right: 1.25rem;
+}
+
+.cartOptionTitle {
+  margin-right: 6px;
+  font-size: 1.125rem;
+}
+
+.cartOptionSelect {
+  border: none;
+  font-size: 16px;
+  color: #6f6c6c;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+/* Cart Option  End*/
+
+.removeItem {
+  background-color: #d71313;
+  color: white;
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 10px;
+  width: 40%;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.price {
+  font-weight: 500;
+  font-size: 1.125rem;
+  margin-left: 12.5rem;
+}
+
+.right {
+  flex: 1;
+}
+
+.wrapper {
+  width: 100%;
+  max-height: 400px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: rgb(0, 0, 0);
+  margin-left: 50px;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.totalText {
+  display: flex;
+  justify-content: space-between;
+}
+
+.totalTextTitle {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.hrItems {
+  border: 1px solid #eae9e9;
+  width: 100%;
+  margin: 20px 0px;
+}
+
+.hr {
+  border: 1px solid #cccbcb;
+  margin: 10px 0px;
+}
+
+.button {
+  border: none;
+  background-color: #111111;
+  color: white;
+  padding: 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.buttonClear {
+  border: 1px solid #c91515;
+  background-color: transparent;
+  color: #c91515;
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+}

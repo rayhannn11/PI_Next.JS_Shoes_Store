@@ -1,0 +1,52 @@
+.container {
+  height: calc(60vh - 100px);
+  background-color: #111111d8;
+  display: flex;
+}
+.item {
+  flex: 1;
+  position: relative;
+  display: flex;
+}
+.item:first-child {
+  margin: 30px;
+}
+
+.item:last-child {
+  flex: 2;
+  padding: 50px;
+  justify-content: space-between;
+}
+
+.card {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.card:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 18px;
+  color: #ff7500;
+  margin-bottom: 1rem;
+}
+
+.text {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.motto {
+  color: #ffffff;
+  font-size: 22px;
+}
+
+.info {
+  font-size: 16px;
+  font-weight: bold;
+}

@@ -1,0 +1,29 @@
+.container {
+  flex: 1;
+
+  margin: 5px;
+  min-width: 30rem;
+  height: 34.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f6f6f6;
+  position: relative;
+  cursor: pointer;
+}
+
+.title {
+  margin-top: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #d1411e;
+  text-align: start;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #161616;
+  text-align: start;
+}
