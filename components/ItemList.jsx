@@ -2,7 +2,7 @@ import styles from "../styles/ItemList.module.css";
 import ItemCard from "./ItemCard";
 import Image from "next/image";
 
-const ItemList = () => {
+const ItemList = ({ products }) => {
   return (
     <div className={styles.container}>
       <Image src="/img/nike-just-do-it.jpg" alt="" width="1400" height="300" />
@@ -18,14 +18,9 @@ const ItemList = () => {
       <p className={styles.itemListTitle}>Product Terbaru dan Terpopuler</p>
 
       <div className={styles.wrapper}>
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
+        {products?.map((product) => (
+          <ItemCard key={product._id} product={product} />
+        ))}
       </div>
     </div>
   );

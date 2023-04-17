@@ -1,8 +1,7 @@
 .container {
   flex: 1;
-
   margin: 5px;
-  min-width: 30rem;
+  min-width: 38rem;
   height: 34.375rem;
   display: flex;
   align-items: center;
@@ -11,6 +10,7 @@
   background-color: #f6f6f6;
   position: relative;
   cursor: pointer;
+  border: 1px solid #f2f0f0;
 }
 
 .title {

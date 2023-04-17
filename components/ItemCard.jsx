@@ -1,13 +1,16 @@
 import Image from "next/image";
 import styles from "../styles/ItemCard.module.css";
+import Link from "next/link";
 
-const ItemCard = () => {
+const ItemCard = ({ product }) => {
   return (
-    <div className={styles.container}>
-      <Image src="/img/shoes.jpg" alt="" width="300" height="300" />
-      <h1 className={styles.title}>Nike Air Force 1 '07</h1>
-      <span className={styles.price}>Rp 1,729,000</span>
-    </div>
+    <Link href={`/product/${product._id}`} passHref>
+      <div className={styles.container}>
+        <Image src={product?.img} alt="" width="300" height="300" />
+        <h1 className={styles.title}>{product?.title}</h1>
+        <span className={styles.price}>Rp {product?.price}</span>
+      </div>
+    </Link>
   );
 };
 

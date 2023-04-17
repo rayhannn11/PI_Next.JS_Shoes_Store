@@ -69,20 +69,36 @@
 }
 
 .sizes {
+  appearance: none;
+  font-size: 18px;
+  font-weight: 300;
   height: 50px;
   width: 120px;
   border: 1px solid #000;
   border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 4px;
   cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+}
+
+.active {
+  appearance: none;
+  font-size: 18px;
+  font-weight: 300;
+  height: 50px;
+  width: 120px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  margin: 4px;
+  color: white;
+  background-color: #000;
+  cursor: pointer;
+  text-align: center;
 }
 
 .size {
-  font-weight: normal;
-  font-size: 18px;
+  display: none;
 }
 
 /* Qty and Button */
