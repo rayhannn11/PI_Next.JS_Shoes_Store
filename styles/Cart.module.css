@@ -16,7 +16,17 @@
 .titleCart {
   font-size: 24px;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.emptyCart {
+  font-size: 20px;
+}
+
+.hrTitleCart {
+  border: 1px solid #000000;
+  width: 26%;
+  margin-bottom: 24px;
 }
 
 .itemsContainer {
@@ -162,4 +172,14 @@
   font-size: 16px;
   cursor: pointer;
   margin-top: 30px;
+}
+
+.buttonFade {
+  border: none;
+  background-color: #f5f5f5;
+  color: #d4cccc;
+  padding: 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin-top: 20px;
 }

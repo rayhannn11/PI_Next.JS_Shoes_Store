@@ -12,6 +12,11 @@ const ProductSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    countInStock: {
+      type: Number,
+      default: 0,
+    },
+
     inStock: { type: Boolean, default: true },
   },
   { timestamps: true }

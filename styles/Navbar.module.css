@@ -35,7 +35,7 @@
   margin: 0rem 1.25rem;
   font-family: "Chivo Mono", monospace;
   font-size: 30px;
-  color: #f6781e;
+  color: #000;
 }
 
 .text:first-child {
@@ -85,10 +85,10 @@
 
 .counter {
   position: absolute;
-  top: -10px;
+  top: -4px;
   right: -10px;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background-color: white;
   border: 1px solid #323232;
@@ -97,5 +97,5 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  color: #d1411e;
+  color: #000;
 }

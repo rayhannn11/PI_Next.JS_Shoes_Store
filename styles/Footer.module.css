@@ -1,7 +1,10 @@
 .container {
   height: calc(60vh - 100px);
-  background-color: #111111d8;
+  background-color: #e4e4e4;
   display: flex;
+  margin-top: 50px;
+  padding: 20px 0px;
+  border-top: 1px solid #e4e3e3;
 }
 .item {
   flex: 1;
@@ -31,22 +34,29 @@
 
 .title {
   font-size: 18px;
-  color: #ff7500;
+  color: #000;
   margin-bottom: 1rem;
 }
 
 .text {
-  color: #ffffff;
+  color: #000;
   margin-bottom: 10px;
   font-size: 16px;
 }
 
 .motto {
-  color: #ffffff;
-  font-size: 22px;
+  color: #000;
+  font-size: 24px;
 }
 
 .info {
   font-size: 16px;
   font-weight: bold;
+  color: #000;
+}
+
+.info:last-child {
+  font-weight: normal;
+  font-size: 18px;
+  color: #000;
 }
