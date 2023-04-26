@@ -4,6 +4,8 @@
   min-height: calc(80vh - 100px);
   width: 70%;
   margin: 0px 200px;
+  margin-top: 20px;
+  margin-bottom: 170px;
   position: relative;
 }
 
@@ -177,7 +179,7 @@
 .buttonFade {
   border: none;
   background-color: #f5f5f5;
-  color: #d4cccc;
+  color: #9e9b9b;
   padding: 20px;
   border-radius: 30px;
   font-weight: bold;

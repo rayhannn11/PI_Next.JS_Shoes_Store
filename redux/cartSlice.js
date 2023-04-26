@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { setCookie, getCookie, deleteCookie, hasCookie } from "cookies-next";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -12,8 +13,6 @@ const cartSlice = createSlice({
     addProduct: (state, action) => {
       state.products.push(action.payload);
       state.quantity += 1;
-
-      // state.total += action.payload.price * action.payload.quantityItem;
     },
     updateCartQty: (state, action) => {
       const itemIndex = state.products.find(

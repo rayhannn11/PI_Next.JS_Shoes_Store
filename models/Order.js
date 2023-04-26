@@ -42,6 +42,10 @@ const OrderSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    paid: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );
