@@ -33,7 +33,11 @@ const Navbar = () => {
               width="40"
               height="40"
             />
-            <div className={styles.counter}>{quantity}</div>
+            {quantity > 0 ? (
+              <div className={styles.counter}>{quantity}</div>
+            ) : (
+              ""
+            )}
           </div>
         </Link>
       </div>

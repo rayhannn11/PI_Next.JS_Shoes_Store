@@ -34,12 +34,12 @@ const cart = () => {
       setQuantityScreen(quantity);
       setTotalScreen(total);
     },
-    [products, quantity, total, isCheckout]
+    [products, quantity, total, isCheckout, cart, cartPersist]
   );
 
   useEffect(() => {
     productState(products, quantity, total);
-  }, [products, quantity, total, isCheckout]);
+  }, [products, quantity, total, isCheckout, cart]);
 
   // Number Format
   var nf = new Intl.NumberFormat();

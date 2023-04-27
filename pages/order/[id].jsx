@@ -2,14 +2,16 @@ import axios from "axios";
 import styles from "../../styles/Order.module.css";
 import Image from "next/image";
 import Head from "next/head";
+import Link from "next/link";
 
 const Order = ({ order }) => {
   const status = order?.status;
+  console.log(status);
 
   const statusClass = (index) => {
-    if (index - status < 1) return styles.done;
-    if (index - status === 1) return styles.inProgress;
-    if (index - status > 1) return styles.undone;
+    if (index + status >= 0) return styles.done;
+    if (index + status === -1) return styles.inProgress;
+    if (index + status < -1) return styles.undone;
   };
 
   var nf = new Intl.NumberFormat();
@@ -30,6 +32,7 @@ const Order = ({ order }) => {
           url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@1,700&display=swap');
         </style>
       </Head>
+
       <div className={styles.container}>
         <div className={styles.left}>
           <div className={styles.row}>
@@ -40,6 +43,7 @@ const Order = ({ order }) => {
                 <th>Address</th>
                 <th>Telephone</th>
                 <th>Total</th>
+                <th>Keterangan</th>
               </tr>
               <tr className={styles.tr}>
                 <td>
@@ -58,17 +62,26 @@ const Order = ({ order }) => {
                 </td>
                 <td>
                   <span className={styles.total}>
-                    Rp {nf.format(order?.total)}
+                    Rp {nf.format(order?.total + 25000)}
+                  </span>
+                </td>
+                <td>
+                  <span className={styles.total}>
+                    {order?.paid === 0 ? (
+                      <span className={styles.keterangan}>Belum Bayar</span>
+                    ) : (
+                      "Lunas"
+                    )}
                   </span>
                 </td>
               </tr>
             </table>
           </div>
           <div className={styles.hr}></div>
-          <div className={styles.row}>
+          <div className={styles.status}>
             <div className={statusClass(0)}>
               <Image src="/img/paid.png" width={30} height={30} alt="" />
-              <span>Payment</span>
+              <span>Pemesanan</span>
               <div className={styles.checkedIcon}>
                 <Image
                   className={styles.checkedIcon}
@@ -79,9 +92,9 @@ const Order = ({ order }) => {
                 />
               </div>
             </div>
-            <div className={statusClass(1)}>
+            <div className={statusClass(-1)}>
               <Image src="/img/packing.png" width={30} height={30} alt="" />
-              <span>Preparing</span>
+              <span>Sedang Dikemas</span>
               <div className={styles.checkedIcon}>
                 <Image
                   className={styles.checkedIcon}
@@ -92,9 +105,9 @@ const Order = ({ order }) => {
                 />
               </div>
             </div>
-            <div className={statusClass(2)}>
+            <div className={statusClass(-2)}>
               <Image src="/img/bike.png" width={30} height={30} alt="" />
-              <span>On the way</span>
+              <span>Dikirim</span>
               <div className={styles.checkedIcon}>
                 <Image
                   className={styles.checkedIcon}
@@ -105,9 +118,9 @@ const Order = ({ order }) => {
                 />
               </div>
             </div>
-            <div className={statusClass(3)}>
+            <div className={statusClass(-3)}>
               <Image src="/img/delivered.png" width={30} height={30} alt="" />
-              <span>Delivered</span>
+              <span>Selesai</span>
               <div className={styles.checkedIcon}>
                 <Image
                   className={styles.checkedIcon}
@@ -119,32 +132,50 @@ const Order = ({ order }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div className={styles.right}>
-          <div className={styles.wrapper}>
-            <h2 className={styles.title}>CART TOTAL</h2>
-            <div className={styles.totalText}>
-              <b className={styles.totalTextTitle}>Subtotal:</b>{" "}
-              {` Rp. ${nf.format(order?.total)} `}
-            </div>
-            <div className={styles.totalText}>
-              <b className={styles.totalTextTitle}>Estimed Delivery:</b>Rp.
-              25,000
-            </div>
-            <div className={styles.totalText}>
-              <b className={styles.totalTextTitle}>Total:</b>{" "}
-              {` Rp. ${nf.format(order?.total + 25000)} `}
-            </div>
-            {/* Button */}
-            {order?.paid === 0 ? (
-              <button disabled className={styles.button}>
-                Belum Bayar
-              </button>
-            ) : (
-              <button disabled className={styles.buttonLunas}>
-                Lunas
-              </button>
-            )}
+          {/* Show Products Order */}
+          <h2 className={styles.orderItemsTitle}>Pesanan Anda</h2>
+          <div className={styles.productsContainer}>
+            {order?.products.map((item) => (
+              <>
+                <div className={styles.productsWrapper}>
+                  <div className={styles.productsLeft}>
+                    <Image src={item?.img} alt="" width="140" height="140" />
+                  </div>
+
+                  <div className={styles.productsMid}>
+                    <div className={styles.itemTitle}>
+                      <Link href={`/product/${item?.productId}`}>
+                        {item?.title}
+                      </Link>
+                    </div>
+                    <div className={styles.Category}>
+                      {item?.categories?.map((categorie) => (
+                        <p key={categorie}>
+                          {categorie
+                            .split(" ")
+                            .map(
+                              (word) =>
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            )
+                            .join("")}{" "}
+                          Shoes
+                        </p>
+                      ))}
+                    </div>
+                    <div className={styles.option}>
+                      <p className={styles.optionChose}>Size: {item?.size}</p>
+                      <p className={styles.optionChose}>
+                        Quantity: {item?.quantity}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className={styles.productsRight}>
+                    Rp. {nf.format(item?.price * item?.quantity)}
+                  </div>
+                </div>
+              </>
+            ))}
           </div>
         </div>
       </div>

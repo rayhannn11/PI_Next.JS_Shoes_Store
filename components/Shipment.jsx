@@ -1,32 +1,49 @@
 import { useState } from "react";
 import styles from "../styles/Shipment.module.css";
+import Alert from "@/components/Alert";
 
 const Shipment = ({ products, total, setIsCheckout, createOrder }) => {
   const [customer, setCustomer] = useState("");
   const [telephone, setTelephone] = useState(0);
   const [address, setAddress] = useState("");
+  const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
 
   const handleClick = () => {
-    createOrder({
-      customer,
-      products: products?.map((item) => ({
-        productId: item?._id,
-        title: item?.title,
-        img: item?.img,
-        size: item?.size,
-        quantity: item?.quantityItem,
-      })),
-      address,
-      telephone,
-      total,
-      method: 0,
-    });
+    console.log(products);
+    if (customer && telephone && address) {
+      createOrder({
+        customer,
+        products: products?.map((item) => ({
+          productId: item?._id,
+          title: item?.title,
+          img: item?.img,
+          size: item?.selectedSize,
+          categories: item?.categories,
+          price: item?.price,
+          quantity: item?.quantityItem,
+        })),
+        address,
+        telephone,
+        total,
+        method: 0,
+      });
+    } else {
+      showAlert(true, "danger", "Tolong Masukan Alamat Pengiriman!");
+    }
   };
 
+  const showAlert = (show = false, type = "", msg = "") => {
+    setAlert({ show, type, msg });
+  };
   //
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
+        {alert.show && (
+          <div className={styles.alertContainer}>
+            <Alert {...alert} removeAlert={showAlert} />
+          </div>
+        )}
         <span className={styles.close} onClick={() => setIsCheckout(false)}>
           X
         </span>
