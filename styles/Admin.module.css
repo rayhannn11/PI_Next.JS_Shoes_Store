@@ -1,0 +1,58 @@
+.container {
+  padding: 50px;
+  display: flex;
+  min-height: 100vh;
+}
+
+.item {
+  flex: 1;
+}
+
+.title {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #111;
+  width: 18%;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 20px;
+  text-align: left;
+}
+
+.trTitle {
+  font-size: 20px;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: crimson;
+}
+
+/* .button:first-child {
+  background-color: teal;
+  margin-right: 10px;
+}
+
+.button:last-child {
+  background-color: crimson;
+} */
+
+.belumBayar {
+  color: crimson;
+}
+
+.lunas {
+  color: teal;
+}
+
+.buttonStage {
+  border: none;
+  background-color: #111;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}

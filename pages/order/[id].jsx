@@ -67,10 +67,10 @@ const Order = ({ order }) => {
                 </td>
                 <td>
                   <span className={styles.total}>
-                    {order?.paid === 0 ? (
+                    {order?.paid < 2 ? (
                       <span className={styles.keterangan}>Belum Bayar</span>
                     ) : (
-                      "Lunas"
+                      <span className={styles.keteranganLunas}>Lunas</span>
                     )}
                   </span>
                 </td>
@@ -79,7 +79,7 @@ const Order = ({ order }) => {
           </div>
           <div className={styles.hr}></div>
           <div className={styles.status}>
-            <div className={statusClass(0)}>
+            <div className={statusClass(1)}>
               <Image src="/img/paid.png" width={30} height={30} alt="" />
               <span>Pemesanan</span>
               <div className={styles.checkedIcon}>
@@ -118,7 +118,7 @@ const Order = ({ order }) => {
                 />
               </div>
             </div>
-            <div className={statusClass(-3)}>
+            <div className={statusClass(-2)}>
               <Image src="/img/delivered.png" width={30} height={30} alt="" />
               <span>Selesai</span>
               <div className={styles.checkedIcon}>
