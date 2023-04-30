@@ -2,10 +2,25 @@
   padding: 50px;
   display: flex;
   min-height: 100vh;
+  position: relative;
+}
+
+.mainAddButton {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 999;
+  padding: 12px 20px;
+  border: none;
+  font-size: 16px;
+  background-color: teal;
+  color: white;
+  cursor: pointer;
 }
 
 .item {
   flex: 1;
+  margin-top: 60px;
 }
 
 .title {

@@ -1,0 +1,47 @@
+.container {
+  height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.img {
+  margin-right: 100px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.input {
+  height: 60px;
+  width: 300px;
+  margin-bottom: 20px;
+  padding: 0px 10px;
+  font-size: 18px;
+}
+
+.button {
+  height: 50px;
+  margin-bottom: 20px;
+  border: none;
+  background-color: teal;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.error {
+  font-size: 16px;
+  color: red;
+}

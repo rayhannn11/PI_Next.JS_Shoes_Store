@@ -3,12 +3,26 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "@/styles/Admin.module.css";
 import Head from "next/head";
+import AddProduct from "@/components/AddProduct";
 
 const index = ({ orders, products }) => {
   const [productList, setProductList] = useState(products);
   const [orderList, setOrderList] = useState(orders);
+  const [isOpen, setIsOpen] = useState(false);
 
   const status = ["Dikemas", "Dikirim", "Selesai"];
+
+  const handleDelete = async (id) => {
+    console.log(id);
+    try {
+      const res = await axios.delete(
+        "http://localhost:3000/api/products/" + id
+      );
+      setProductList(productList.filter((product) => product._id !== id));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleStatus = async (id) => {
     const item = orderList.filter((order) => order._id === id)[0];
@@ -30,10 +44,6 @@ const index = ({ orders, products }) => {
     }
   };
 
-  const handleDelete = (id) => {
-    console.log("hello");
-  };
-
   var nf = new Intl.NumberFormat();
 
   return (
@@ -50,8 +60,19 @@ const index = ({ orders, products }) => {
           url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@1,700&display=swap');
         </style>
       </Head>
-
       <div className={styles.container}>
+        {isOpen && <AddProduct setIsOpen={setIsOpen} />}
+        {!isOpen ? (
+          <button
+            onClick={() => setIsOpen(true)}
+            className={styles.mainAddButton}
+          >
+            Add Product
+          </button>
+        ) : (
+          ""
+        )}
+
         {/* Products */}
         <div className={styles.item}>
           <h1 className={styles.title}>Products</h1>

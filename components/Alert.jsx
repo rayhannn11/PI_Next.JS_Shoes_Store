@@ -8,7 +8,11 @@ const Alert = ({ type, msg, removeAlert }) => {
     }, 3000);
     return () => clearTimeout(timeout);
   }, []);
-  return <p className={styles.alert}>{msg}</p>;
+  return (
+    <p className={type === "danger" ? styles.alertDanger : styles.alertSuccess}>
+      {msg}
+    </p>
+  );
 };
 
 export default Alert;

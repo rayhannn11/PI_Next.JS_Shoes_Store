@@ -1,0 +1,141 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(245, 240, 240, 0.52);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.wrapper {
+  width: 500px;
+  background-color: white;
+  padding: 10px 50px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 100px;
+}
+
+.alertContainer {
+  position: absolute;
+  top: -100px;
+  left: 0px;
+  z-index: 999;
+}
+
+.close {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.title {
+  font-size: 26px;
+  margin: 10px;
+  margin-bottom: 20px;
+  font-family: "Chivo Mono", monospace;
+  text-align: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  height: auto;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid gray;
+  outline: none;
+  font-size: 16px;
+}
+
+.textArea {
+  font-size: 18px;
+}
+
+.priceAndStock {
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceContainer {
+  margin-top: 6px;
+}
+
+.inputSm {
+  width: 60%;
+}
+
+.optionContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.optionInput {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.optionButton {
+  width: 18%;
+  border: none;
+  color: white;
+  background-color: teal;
+  font-size: 14px;
+  border-radius: 30px;
+}
+
+.optionItems {
+  margin: 6px 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.optionItem {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid teal;
+  background-color: white;
+  color: teal;
+  font-weight: bold;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.addButton {
+  border: none;
+  background-color: teal;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 12px 18px;
+  align-self: flex-end;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

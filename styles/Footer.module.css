@@ -1,3 +1,12 @@
+.containerAdmin {
+  height: calc(30vh - 100px);
+  background-color: #111;
+  display: flex;
+  margin-top: 50px;
+  padding: 20px 0px;
+  border-top: 1px solid #e4e3e3;
+}
+
 .container {
   height: calc(60vh - 100px);
   background-color: #111;

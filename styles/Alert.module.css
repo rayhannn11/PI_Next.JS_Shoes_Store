@@ -1,4 +1,4 @@
-.alert {
+.alertDanger {
   padding: 20px;
   width: 500px;
   align-items: center;
@@ -8,11 +8,14 @@
   background-color: rgb(211, 50, 50);
   color: white;
 }
-.alert-danger {
-  color: #721c24;
-  background: #f8d7da;
-}
-.alert-success {
+
+.alertSuccess {
+  padding: 20px;
+  width: 500px;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  text-transform: capitalize;
   color: #155724;
   background: #d4edda;
 }
