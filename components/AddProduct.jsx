@@ -30,33 +30,32 @@ const AddProduct = ({ setIsOpen }) => {
   };
 
   const handleCreate = async () => {
-    if (title && desc && price && countInStock && categories && size) {
-      console.log("hello");
-      console.log(title, desc, price, countInStock, categories, size);
+    if (file && title && desc && price && countInStock && categories && size) {
+      const data = new FormData();
+      data.append("file", file);
+      data.append("upload_preset", "shoe-store");
 
-      // const data = new FormData();
-      // data.append("file", file);
-      // data.append("upload_preset", "uploads");
-      // try {
-      //   const uploadRes = await axios.post(
-      //     "https://api.cloudinary.com/v1_1/dsbyq4sj1/image/upload",
-      //     data
-      //   );
+      try {
+        const uploadRes = await axios.post(
+          "https://api.cloudinary.com/v1_1/dbcclfazz/image/upload",
+          data
+        );
 
-      //   const { url } = uploadRes.data;
-      //   const newProduct = {
-      //     title,
-      //     desc,
-      //     prices,
-      //     extraOptions,
-      //     img: url,
-      //   };
-
-      //   await axios.post("http://localhost:3000/api/products", newProduct);
-      setIsOpen(false);
-      // } catch (err) {
-      //   console.log(err);
-      // }
+        const { url } = uploadRes.data;
+        const newProduct = {
+          title,
+          desc,
+          categories,
+          size,
+          price,
+          countInStock,
+          img: url,
+        };
+        await axios.post("http://localhost:3000/api/products", newProduct);
+        setIsOpen(false);
+      } catch (err) {
+        console.log(err);
+      }
     } else {
       showAlert(true, "danger", "Tolong Masukan Rincian Product!");
     }

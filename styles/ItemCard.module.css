@@ -1,8 +1,8 @@
 .container {
   flex: 1;
   margin: 5px;
-  min-width: 46rem;
-  height: 38.375rem;
+  min-width: 38rem;
+  height: 32.375rem;
   display: flex;
   align-items: center;
   justify-content: center;

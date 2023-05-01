@@ -8,7 +8,7 @@ const Footer = () => {
   const pathAdmin = asPath.split("/")[1];
   return (
     <>
-      {pathAdmin ? (
+      {pathAdmin === "admin" ? (
         <div className={styles.containerAdmin}>Naruto </div>
       ) : (
         <div className={styles.container}>

@@ -12,10 +12,12 @@ const Navbar = () => {
     <div className={styles.container}>
       {/* Left */}
       <div className={styles.item}>
-        <div className={styles.texts}>{pathAdmin ? "" : "Ari Shoes"}</div>
+        <div className={styles.texts}>
+          {pathAdmin === "admin" ? "" : "Ari Shoes"}
+        </div>
       </div>
       {/* Mid */}
-      {pathAdmin ? (
+      {pathAdmin === "admin" ? (
         ""
       ) : (
         <div className={styles.item}>
@@ -31,7 +33,7 @@ const Navbar = () => {
       )}
 
       {/* Right */}
-      {pathAdmin ? (
+      {pathAdmin === "admin" ? (
         <div className={styles.item}>
           <div className={styles.texts}>Admin Dashboard</div>
         </div>
