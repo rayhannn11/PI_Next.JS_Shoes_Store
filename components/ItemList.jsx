@@ -1,8 +1,15 @@
+import { useEffect, useState } from "react";
 import styles from "../styles/ItemList.module.css";
 import ItemCard from "./ItemCard";
 import Image from "next/image";
 
 const ItemList = ({ products }) => {
+  const [populerProduct, setPopulerProduct] = useState(products);
+
+  useEffect(() => {
+    setPopulerProduct((prev) => [...prev].sort((a, b) => b.sold - a.sold));
+  }, []);
+
   return (
     <div className={styles.container}>
       <Image src="/img/nike-just-do-it.jpg" alt="" width="1400" height="300" />
@@ -18,7 +25,7 @@ const ItemList = ({ products }) => {
       <p className={styles.itemListTitle}>Product Terbaru dan Terpopuler</p>
 
       <div className={styles.wrapper}>
-        {products?.map((product) => (
+        {populerProduct?.map((product) => (
           <ItemCard key={product._id} product={product} />
         ))}
       </div>

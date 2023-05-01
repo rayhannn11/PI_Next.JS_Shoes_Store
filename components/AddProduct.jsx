@@ -84,7 +84,7 @@ const AddProduct = ({ setIsOpen }) => {
           <input
             className={styles.input}
             type="text"
-            placeholder="Ex. Jordan 1 Mid"
+            placeholder="Isi Seperti Ini: Ex. Jordan 1 Mid"
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
@@ -94,7 +94,7 @@ const AddProduct = ({ setIsOpen }) => {
           <textarea
             rows={4}
             type="text"
-            placeholder="Ex. Outfit your little one with the timeless style of the AJ1 in the Jordan 1 Mid."
+            placeholder="Isi Seperti Ini: Ex. Outfit your little one with the timeless style of the AJ1 in the Jordan 1 Mid."
             className={styles.textArea}
             onChange={(e) => setDesc(e.target.value)}
           />
@@ -108,7 +108,7 @@ const AddProduct = ({ setIsOpen }) => {
                 <input
                   className={`${styles.input} ${styles.inputSm}`}
                   type="number"
-                  placeholder="Ex. 1300000"
+                  placeholder="Isi Seperti Ini: Ex. 1300000"
                   min="1"
                   onChange={(e) => setPrice(parseInt(e.target.value))}
                 />
@@ -121,7 +121,7 @@ const AddProduct = ({ setIsOpen }) => {
                 <input
                   className={`${styles.input} ${styles.inputSm}`}
                   type="number"
-                  placeholder="Ex. 10"
+                  placeholder="Isi Seperti Ini: Ex. 10"
                   min="1"
                   onChange={(e) => setCountInStock(parseInt(e.target.value))}
                 />
@@ -137,7 +137,7 @@ const AddProduct = ({ setIsOpen }) => {
               <input
                 className={styles.input}
                 type="text"
-                placeholder="Ex. pria"
+                placeholder="Isi Seperti Ini: Ex. pria"
                 onChange={(e) => setTempCategories(e.target.value)}
               />
             </div>

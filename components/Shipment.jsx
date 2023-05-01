@@ -14,6 +14,7 @@ const Shipment = ({ products, total, setIsCheckout, createOrder }) => {
       createOrder({
         customer,
         products: products?.map((item) => ({
+          uniqueId: item?.idProduct,
           productId: item?._id,
           title: item?.title,
           img: item?.img,
@@ -21,6 +22,8 @@ const Shipment = ({ products, total, setIsCheckout, createOrder }) => {
           categories: item?.categories,
           price: item?.price,
           quantity: item?.quantityItem,
+          countInStock: item?.countInStock,
+          sold: item?.sold,
         })),
         address,
         telephone,
@@ -51,7 +54,7 @@ const Shipment = ({ products, total, setIsCheckout, createOrder }) => {
         <div className={styles.item}>
           <label className={styles.label}>Name</label>
           <input
-            placeholder="Rayhan Naufal"
+            placeholder="Isi Lengkap: Ex. Rayhan Naufal"
             type="text"
             className={styles.input}
             onChange={(e) => setCustomer(e.target.value)}
@@ -61,7 +64,7 @@ const Shipment = ({ products, total, setIsCheckout, createOrder }) => {
           <label className={styles.label}>Nomor Telephone</label>
           <input
             type="text"
-            placeholder="082386416545"
+            placeholder="Isi Lengkap: Ex. 082386416545"
             className={styles.input}
             onChange={(e) => setTelephone(parseInt(e.target.value))}
           />
@@ -70,7 +73,7 @@ const Shipment = ({ products, total, setIsCheckout, createOrder }) => {
           <label className={styles.label}>Address</label>
           <textarea
             rows={5}
-            placeholder=" Jl. Raya Bogor No.KM.24 No.40, RT.6/RW.1, Susukan, Kec. Ciracas, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13770"
+            placeholder="Isi Lengkap: Ex. Jl. Raya Bogor No.KM.24 No.40, RT.6/RW.1, Susukan, Kec. Ciracas, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13770"
             type="text"
             className={styles.textarea}
             onChange={(e) => setAddress(e.target.value)}

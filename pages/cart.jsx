@@ -58,12 +58,36 @@ const cart = () => {
 
   // CreateOrderFunction
   const createOrder = async (data) => {
+    const productIdArr = data.products.map((item) => item.productId);
+    const productId = productIdArr.toString();
+
+    const countInStockArr = data.products.map((item) => item.countInStock);
+    const currentCountInStockString = countInStockArr.toString();
+    const currentCountInStock = parseInt(currentCountInStockString);
+
+    const soldArr = data.products.map((item) => item.sold);
+    const currentSoldString = soldArr.toString();
+    const currentSold = parseInt(currentSoldString);
+
+    const qtyArr = data.products.map((item) => item.quantity);
+    const currentQtyString = qtyArr.toString();
+    const currentQty = parseInt(currentQtyString);
+
     try {
       const res = await axios.post("http://localhost:3000/api/orders", data);
+
       if (res.status === 201) {
-        dispatch(clearCart());
-        router.push(`/order/${res.data._id}`);
-        setIsCheckout(false);
+        try {
+          await axios.put("http://localhost:3000/api/products/" + productId, {
+            countInStock: currentCountInStock - currentQty,
+            sold: currentSold + currentQty,
+          });
+          dispatch(clearCart());
+          router.push(`/order/${res.data._id}`);
+          setIsCheckout(false);
+        } catch (error) {
+          console.log(error);
+        }
       }
     } catch (err) {
       console.log(err);

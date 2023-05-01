@@ -136,45 +136,43 @@ const Order = ({ order }) => {
           <h2 className={styles.orderItemsTitle}>Pesanan Anda</h2>
           <div className={styles.productsContainer}>
             {order?.products.map((item) => (
-              <>
-                <div className={styles.productsWrapper}>
-                  <div className={styles.productsLeft}>
-                    <Image src={item?.img} alt="" width="140" height="140" />
-                  </div>
+              <div className={styles.productsWrapper} key={item?.uniqueId}>
+                <div className={styles.productsLeft}>
+                  <Image src={item?.img} alt="" width="140" height="140" />
+                </div>
 
-                  <div className={styles.productsMid}>
-                    <div className={styles.itemTitle}>
-                      <Link href={`/product/${item?.productId}`}>
-                        {item?.title}
-                      </Link>
-                    </div>
-                    <div className={styles.Category}>
-                      {item?.categories?.map((categorie) => (
-                        <p key={categorie}>
-                          {categorie
-                            .split(" ")
-                            .map(
-                              (word) =>
-                                word.charAt(0).toUpperCase() + word.slice(1)
-                            )
-                            .join("")}{" "}
-                          Shoes
-                        </p>
-                      ))}
-                    </div>
-                    <div className={styles.option}>
-                      <p className={styles.optionChose}>Size: {item?.size}</p>
-                      <p className={styles.optionChose}>
-                        Quantity: {item?.quantity}
+                <div className={styles.productsMid}>
+                  <div className={styles.itemTitle}>
+                    <Link href={`/product/${item?.productId}`}>
+                      {item?.title}
+                    </Link>
+                  </div>
+                  <div className={styles.Category}>
+                    {item?.categories?.map((categorie) => (
+                      <p key={categorie}>
+                        {categorie
+                          .split(" ")
+                          .map(
+                            (word) =>
+                              word.charAt(0).toUpperCase() + word.slice(1)
+                          )
+                          .join("")}{" "}
+                        Shoes
                       </p>
-                    </div>
+                    ))}
                   </div>
-
-                  <div className={styles.productsRight}>
-                    Rp. {nf.format(item?.price * item?.quantity)}
+                  <div className={styles.option}>
+                    <p className={styles.optionChose}>Size: {item?.size}</p>
+                    <p className={styles.optionChose}>
+                      Quantity: {item?.quantity}
+                    </p>
                   </div>
                 </div>
-              </>
+
+                <div className={styles.productsRight}>
+                  Rp. {nf.format(item?.price * item?.quantity)}
+                </div>
+              </div>
             ))}
           </div>
         </div>

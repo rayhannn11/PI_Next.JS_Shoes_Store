@@ -9,6 +9,9 @@ const OrderSchema = new mongoose.Schema(
     },
     products: [
       {
+        uniqueId: {
+          type: String,
+        },
         productId: {
           type: String,
         },
@@ -20,6 +23,12 @@ const OrderSchema = new mongoose.Schema(
         quantity: {
           type: Number,
           default: 1,
+        },
+        countInStock: {
+          type: Number,
+        },
+        sold: {
+          type: Number,
         },
       },
     ],

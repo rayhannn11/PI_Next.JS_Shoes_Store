@@ -27,6 +27,7 @@ const index = ({ orders, products }) => {
   const handleStatus = async (id) => {
     const item = orderList.filter((order) => order._id === id)[0];
     console.log(item);
+    // Status And Paid
     const currentStatus = item?.status;
     const currentPaid = item?.paid;
 
