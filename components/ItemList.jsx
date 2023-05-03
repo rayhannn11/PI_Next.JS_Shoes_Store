@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "../styles/ItemList.module.css";
 import ItemCard from "./ItemCard";
 import Image from "next/image";
+import Link from "next/link";
 
 const ItemList = ({ products }) => {
   const [populerProduct, setPopulerProduct] = useState(products);
@@ -19,13 +20,16 @@ const ItemList = ({ products }) => {
           MENYEDIAKAN BERBAGAI MACAM SEPATU PREMIUM QUALITY DENGAN HARGA
           TERJANGKAU.
         </p>
-        <button className={styles.button}>ALL PRODUCTS</button>
+        <button className={styles.button}>
+          <Link href={"/product"}>ALL PRODUCTS</Link>
+        </button>
       </div>
 
       <p className={styles.itemListTitle}>Product Terbaru dan Terpopuler</p>
+      <div className={styles.Hr} />
 
       <div className={styles.wrapper}>
-        {populerProduct?.map((product) => (
+        {populerProduct?.slice(0, 4).map((product) => (
           <ItemCard key={product._id} product={product} />
         ))}
       </div>

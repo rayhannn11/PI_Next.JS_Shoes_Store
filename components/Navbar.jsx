@@ -38,9 +38,13 @@ const Navbar = () => {
             <Link href="/">
               <li className={styles.listItem}>HOMEPAGE</li>
             </Link>
+            <Link href="/product">
+              <li className={styles.listItem}>PRODUCTS</li>
+            </Link>
 
-            <li className={styles.listItem}>PRODUCTS</li>
-            <li className={styles.listItem}>CONTACT</li>
+            <Link href="/about">
+              <li className={styles.listItem}>ABOUT</li>
+            </Link>
           </ul>
         </div>
       )}

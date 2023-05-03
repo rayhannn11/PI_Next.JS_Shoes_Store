@@ -1,0 +1,29 @@
+.container {
+  padding: 20px 10px;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  color: black;
+}
+
+.title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.Hr {
+  border-bottom: 3px solid #d1411e;
+  width: 16%;
+}
+
+.productWrapper {
+  display: grid;
+  grid-template-columns: auto 3fr auto;
+  margin-top: 50px;
+  padding: 0px 50px;
+}

@@ -46,10 +46,16 @@
 
 .itemListTitle {
   margin-top: 80px;
+  margin-bottom: 20px;
   font-size: 24px;
   color: black;
   font-weight: 700;
   font-family: "Roboto Slab", serif;
+}
+
+.Hr {
+  border-bottom: 3px solid #d1411e;
+  width: 14%;
 }
 
 .wrapper {
