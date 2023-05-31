@@ -28,7 +28,9 @@ export default function Home({ products }) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await axios.get("http://localhost:3000/api/products");
+  const res = await axios.get(
+    "https://pi-next-js-shoes-store.vercel.app/api/products"
+  );
   return {
     props: {
       products: res.data,
