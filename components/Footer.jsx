@@ -18,7 +18,7 @@ const Footer = () => {
               target="_blank"
             >
               <Image
-                src="/img/ari-shoes-map2.jpg"
+                src="/img/ari-shoes-map3.png"
                 objectFit="cover"
                 layout="fill"
                 alt="MAP"

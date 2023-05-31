@@ -33,7 +33,7 @@ const index = ({ products }) => {
 
 export const getServerSideProps = async () => {
   const res = await axios.get(
-    "https://pi-next-js-shoes-store-ztis-hu4rbp253-rayhannn11.vercel.app/api/products"
+    "https://pi-next-js-shoes-store-ztis.vercel.app/api/products"
   );
   return {
     props: {

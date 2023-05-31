@@ -56,7 +56,7 @@ const AddProduct = ({ setIsOpen }) => {
           img: url,
         };
         await axios.post(
-          "https://pi-next-js-shoes-store-ztis-hu4rbp253-rayhannn11.vercel.app/api/products",
+          "https://pi-next-js-shoes-store-ztis.vercel.app/api/products",
           newProduct
         );
         setLoading(false);
