@@ -15,10 +15,13 @@ const login = () => {
   const handleClick = async () => {
     try {
       setLoading(true);
-      await axios.post("http://localhost:3000/api/login", {
-        username,
-        password,
-      });
+      await axios.post(
+        "https://pi-next-js-shoes-store-ztis.vercel.app/api/login",
+        {
+          username,
+          password,
+        }
+      );
       router.push("/admin");
     } catch (err) {
       setError(true);

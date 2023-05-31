@@ -55,7 +55,10 @@ const AddProduct = ({ setIsOpen }) => {
           countInStock,
           img: url,
         };
-        await axios.post("http://localhost:3000/api/products", newProduct);
+        await axios.post(
+          "https://pi-next-js-shoes-store-ztis.vercel.app/api/products",
+          newProduct
+        );
         setLoading(false);
         setIsOpen(false);
       } catch (err) {

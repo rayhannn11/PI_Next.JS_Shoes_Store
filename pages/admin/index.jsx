@@ -16,7 +16,7 @@ const index = ({ orders, products }) => {
     console.log(id);
     try {
       const res = await axios.delete(
-        "http://localhost:3000/api/products/" + id
+        "https://pi-next-js-shoes-store-ztis.vercel.app/api/products/" + id
       );
       setProductList(productList.filter((product) => product._id !== id));
     } catch (err) {
@@ -32,10 +32,13 @@ const index = ({ orders, products }) => {
     const currentPaid = item?.paid;
 
     try {
-      const res = await axios.put("http://localhost:3000/api/orders/" + id, {
-        status: currentStatus + 1,
-        paid: currentPaid + 1,
-      });
+      const res = await axios.put(
+        "https://pi-next-js-shoes-store-ztis.vercel.app/api/orders/" + id,
+        {
+          status: currentStatus + 1,
+          paid: currentPaid + 1,
+        }
+      );
       setOrderList([
         res.data,
         ...orderList.filter((order) => order._id !== id),

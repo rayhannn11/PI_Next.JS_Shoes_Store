@@ -74,14 +74,21 @@ const cart = () => {
     const currentQty = parseInt(currentQtyString);
 
     try {
-      const res = await axios.post("http://localhost:3000/api/orders", data);
+      const res = await axios.post(
+        "https://pi-next-js-shoes-store-ztis.vercel.app/api/orders",
+        data
+      );
 
       if (res.status === 201) {
         try {
-          await axios.put("http://localhost:3000/api/products/" + productId, {
-            countInStock: currentCountInStock - currentQty,
-            sold: currentSold + currentQty,
-          });
+          await axios.put(
+            "https://pi-next-js-shoes-store-ztis.vercel.app/api/products/" +
+              productId,
+            {
+              countInStock: currentCountInStock - currentQty,
+              sold: currentSold + currentQty,
+            }
+          );
           dispatch(clearCart());
           router.push(`/order/${res.data._id}`);
           setIsCheckout(false);

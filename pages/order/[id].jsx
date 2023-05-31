@@ -138,7 +138,13 @@ const Order = ({ order }) => {
             {order?.products.map((item) => (
               <div className={styles.productsWrapper} key={item?.uniqueId}>
                 <div className={styles.productsLeft}>
-                  <Image src={item?.img} alt="" width="140"  height="140" className={styles.productImg} />
+                  <Image
+                    src={item?.img}
+                    alt=""
+                    width="140"
+                    height="140"
+                    className={styles.productImg}
+                  />
                 </div>
 
                 <div className={styles.productsMid}>
@@ -182,7 +188,9 @@ const Order = ({ order }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(`http://localhost:3000/api/orders/${params.id}`);
+  const res = await axios.get(
+    `https://pi-next-js-shoes-store-ztis.vercel.app/api/orders/${params.id}`
+  );
   return {
     props: { order: res.data },
   };
