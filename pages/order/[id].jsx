@@ -189,7 +189,7 @@ const Order = ({ order }) => {
 
 export const getServerSideProps = async ({ params }) => {
   const res = await axios.get(
-    `https://pi-next-js-shoes-store-ztis.vercel.app/api/orders/${params.id}`
+    `https://pi-next-js-shoes-store-ztis-hu4rbp253-rayhannn11.vercel.app/api/orders/${params.id}`
   );
   return {
     props: { order: res.data },

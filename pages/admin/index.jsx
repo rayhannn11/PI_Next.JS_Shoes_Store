@@ -16,7 +16,8 @@ const index = ({ orders, products }) => {
     console.log(id);
     try {
       const res = await axios.delete(
-        "https://pi-next-js-shoes-store-ztis.vercel.app/api/products/" + id
+        "https://pi-next-js-shoes-store-ztis-hu4rbp253-rayhannn11.vercel.app/api/products/" +
+          id
       );
       setProductList(productList.filter((product) => product._id !== id));
     } catch (err) {
@@ -33,7 +34,8 @@ const index = ({ orders, products }) => {
 
     try {
       const res = await axios.put(
-        "https://pi-next-js-shoes-store-ztis.vercel.app/api/orders/" + id,
+        "https://pi-next-js-shoes-store-ztis-hu4rbp253-rayhannn11.vercel.app/api/orders/" +
+          id,
         {
           status: currentStatus + 1,
           paid: currentPaid + 1,
@@ -180,8 +182,12 @@ export const getServerSideProps = async (ctx) => {
     };
   }
 
-  const productRes = await axios.get("http://localhost:3000/api/products");
-  const orderRes = await axios.get("http://localhost:3000/api/orders");
+  const productRes = await axios.get(
+    "https://pi-next-js-shoes-store-ztis-hu4rbp253-rayhannn11.vercel.app/api/products"
+  );
+  const orderRes = await axios.get(
+    "https://pi-next-js-shoes-store-ztis-hu4rbp253-rayhannn11.vercel.app/api/orders"
+  );
 
   return {
     props: {
