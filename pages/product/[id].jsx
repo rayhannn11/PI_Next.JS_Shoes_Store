@@ -66,20 +66,27 @@ const Product = ({ item }) => {
         {/* Left for IMAGE */}
         <div className={styles.left}>
           <div className={styles.imgContainer}>
-            <Image src={item?.img} objectFit="contain" layout="fill" alt="" />
+            <Image
+              src={item?.img}
+              objectFit="contain"
+              layout="fill"
+              alt="product image"
+            />
           </div>
         </div>
         {/* Right for INFO PRODUCT */}
         <div className={styles.right}>
           <h1 className={styles.title}>{item?.title}</h1>
-          {item?.categories.map((categorie) => (
-            <h1 className={styles.category} key={categorie}>
-              {categorie
-                .split(" ")
-                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                .join("")}
-            </h1>
-          ))}
+          <div className={styles.categoryWrapper}>
+            {item?.categories.map((categorie) => (
+              <h1 className={styles.category} key={categorie}>
+                {categorie
+                  .split(" ")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join("")}
+              </h1>
+            ))}
+          </div>
 
           <span className={styles.price}>Rp. {nf.format(item?.price)}</span>
           <p className={styles.desc}>{item?.desc}</p>

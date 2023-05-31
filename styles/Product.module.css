@@ -1,5 +1,5 @@
 .container {
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
   padding: 50px;
   display: flex;
   position: relative;
@@ -26,15 +26,18 @@
 }
 
 .imgContainer {
-  width: 80%;
-  height: 80%;
+  width: 600px;
+  height: 600px;
   position: relative;
   margin-bottom: 100px;
   margin-left: 50px;
+  filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
 }
 
 /* Right */
-
+.categoryWrapper {
+  display: flex;
+}
 .title {
   font-size: 28px;
   font-weight: bold;
@@ -45,6 +48,7 @@
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 20px;
+  margin-right: 6px;
 }
 
 .price {

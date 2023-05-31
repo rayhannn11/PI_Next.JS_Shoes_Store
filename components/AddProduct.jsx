@@ -16,6 +16,7 @@ const AddProduct = ({ setIsOpen }) => {
   const [tempSize, setTempSize] = useState(null);
   const [size, setSize] = useState([]);
   const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
+  const [loading, setLoading] = useState(false);
 
   const showAlert = (show = false, type = "", msg = "") => {
     setAlert({ show, type, msg });
@@ -23,10 +24,12 @@ const AddProduct = ({ setIsOpen }) => {
 
   const handleCategories = () => {
     setCategories((prev) => [...prev, tempCategories]);
+    setTempCategories("");
   };
 
   const handleSize = () => {
     setSize((prev) => [...prev, tempSize]);
+    setTempSize("");
   };
 
   const handleCreate = async () => {
@@ -36,6 +39,7 @@ const AddProduct = ({ setIsOpen }) => {
       data.append("upload_preset", "shoe-store");
 
       try {
+        setLoading(true);
         const uploadRes = await axios.post(
           "https://api.cloudinary.com/v1_1/dbcclfazz/image/upload",
           data
@@ -52,6 +56,7 @@ const AddProduct = ({ setIsOpen }) => {
           img: url,
         };
         await axios.post("http://localhost:3000/api/products", newProduct);
+        setLoading(false);
         setIsOpen(false);
       } catch (err) {
         console.log(err);
@@ -138,6 +143,7 @@ const AddProduct = ({ setIsOpen }) => {
                 className={styles.input}
                 type="text"
                 placeholder="Isi Seperti Ini: Ex. pria"
+                value={tempCategories}
                 onChange={(e) => setTempCategories(e.target.value)}
               />
             </div>
@@ -163,6 +169,7 @@ const AddProduct = ({ setIsOpen }) => {
                 className={styles.input}
                 type="text"
                 placeholder="Ex. 37"
+                value={tempSize}
                 onChange={(e) => setTempSize(e.target.value)}
               />
             </div>
@@ -181,7 +188,7 @@ const AddProduct = ({ setIsOpen }) => {
         </div>
 
         <button className={styles.addButton} onClick={handleCreate}>
-          Create
+          {!loading ? "Create" : "Loading..."}
         </button>
       </div>
     </div>

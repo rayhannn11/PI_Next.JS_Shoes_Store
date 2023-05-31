@@ -121,6 +121,10 @@ const cart = () => {
               <h3 className={styles.emptyCart}>
                 Tidak ada barang didalam keranjang belanja anda.
               </h3>
+
+              <u className={styles.buyNow}>
+                <Link href={"/product"}>Belanja Sekarang. </Link>
+              </u>
             </>
           ) : (
             <>
@@ -129,7 +133,13 @@ const cart = () => {
                 <div className={styles.itemsContainer} key={item?.idProduct}>
                   {/* Cart Item Start */}
                   <div className={styles.itemContainer}>
-                    <Image src={item?.img} alt="" width="160" height="160" />
+                    <Image
+                      src={item?.img}
+                      alt=""
+                      width="160"
+                      height="160"
+                      className={styles.itemImg}
+                    />
                     <div className={styles.infoContainer}>
                       <div className={styles.itemTitle}>
                         <Link href={`/product/${item?._id}`}>

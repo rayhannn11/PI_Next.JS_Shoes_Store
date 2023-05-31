@@ -52,7 +52,7 @@ const Shipment = ({ products, total, setIsCheckout, createOrder }) => {
         </span>
         <h1 className={styles.title}>Pembayaran Cash On Delivery.</h1>
         <div className={styles.item}>
-          <label className={styles.label}>Name</label>
+          <label className={styles.label}>Nama</label>
           <input
             placeholder="Isi Lengkap: Ex. Rayhan Naufal"
             type="text"
@@ -70,7 +70,7 @@ const Shipment = ({ products, total, setIsCheckout, createOrder }) => {
           />
         </div>
         <div className={styles.item}>
-          <label className={styles.label}>Address</label>
+          <label className={styles.label}>Alamat</label>
           <textarea
             rows={5}
             placeholder="Isi Lengkap: Ex. Jl. Raya Bogor No.KM.24 No.40, RT.6/RW.1, Susukan, Kec. Ciracas, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13770"

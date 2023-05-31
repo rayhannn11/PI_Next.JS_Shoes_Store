@@ -8,11 +8,13 @@ import Image from "next/image";
 const login = () => {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const router = useRouter();
 
   const handleClick = async () => {
     try {
+      setLoading(true);
       await axios.post("http://localhost:3000/api/login", {
         username,
         password,
@@ -20,6 +22,8 @@ const login = () => {
       router.push("/admin");
     } catch (err) {
       setError(true);
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -59,7 +63,7 @@ const login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button onClick={handleClick} className={styles.button}>
-            Sign In
+            {!loading ? "Sign In" : "Loading..."}
           </button>
           {error && (
             <span className={styles.error}>Email dan Password Salah!</span>

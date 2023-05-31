@@ -138,7 +138,7 @@ const Order = ({ order }) => {
             {order?.products.map((item) => (
               <div className={styles.productsWrapper} key={item?.uniqueId}>
                 <div className={styles.productsLeft}>
-                  <Image src={item?.img} alt="" width="140" height="140" />
+                  <Image src={item?.img} alt="" width="140"  height="140" className={styles.productImg} />
                 </div>
 
                 <div className={styles.productsMid}>
