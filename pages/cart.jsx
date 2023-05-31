@@ -25,6 +25,7 @@ const cart = () => {
   const [quantityScreen, setQuantityScreen] = useState(quantity);
   const [totalScreen, setTotalScreen] = useState(total);
   const [isCheckout, setIsCheckout] = useState(false);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -74,6 +75,7 @@ const cart = () => {
     const currentQty = parseInt(currentQtyString);
 
     try {
+      setLoading(true);
       const res = await axios.post(
         "https://pi-next-js-shoes-store-ztis.vercel.app/api/orders",
         data
@@ -94,10 +96,14 @@ const cart = () => {
           setIsCheckout(false);
         } catch (error) {
           console.log(error);
+        } finally {
+          setLoading(false);
         }
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -288,6 +294,7 @@ const cart = () => {
             total={totalScreen}
             setIsCheckout={setIsCheckout}
             createOrder={createOrder}
+            loading={loading}
           />
         )}
       </div>

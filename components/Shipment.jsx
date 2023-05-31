@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "../styles/Shipment.module.css";
 import Alert from "@/components/Alert";
 
-const Shipment = ({ products, total, setIsCheckout, createOrder }) => {
+const Shipment = ({ products, total, setIsCheckout, createOrder, loading }) => {
   const [customer, setCustomer] = useState("");
   const [telephone, setTelephone] = useState(0);
   const [address, setAddress] = useState("");
@@ -80,7 +80,7 @@ const Shipment = ({ products, total, setIsCheckout, createOrder }) => {
           />
         </div>
         <button className={styles.button} onClick={() => handleClick()}>
-          Order
+          {!loading ? "Order" : "Loading..."}
         </button>
       </div>
     </div>

@@ -14,7 +14,9 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.delete("http://localhost:3000/api/logout");
+      await axios.delete(
+        "https://pi-next-js-shoes-store-ztis.vercel.app/api/logout"
+      );
       router.push("/admin/login");
     } catch (err) {
       console.log(err);
