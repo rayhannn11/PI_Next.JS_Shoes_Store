@@ -29,7 +29,7 @@ export default function Home({ products }) {
 
 export const getServerSideProps = async () => {
   const res = await axios.get(
-    "https://pi-next-js-shoes-store-ztis.vercel.app/api/products"
+    "https://pi-next-js-shoes-store-ztis-fs4u0nlhy-rayhannn11.vercel.app/api/products"
   );
   return {
     props: {
