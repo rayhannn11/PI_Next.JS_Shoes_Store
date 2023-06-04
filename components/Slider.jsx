@@ -3,11 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Slider = () => {
-  const images = [
-    "/img/newSlider3.png",
-    "/img/newSlider2.png",
-    "/img/newSlider1.png",
-  ];
+  const images = ["/img/newSlider2.png", "/img/newSlider1.png"];
   const [slideIndex, setSlideIndex] = useState(0);
 
   // useEffect Untuk Merubah Urutan slide index jika
